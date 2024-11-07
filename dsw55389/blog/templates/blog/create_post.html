@@ -1,0 +1,20 @@
+<!-- blog/templates/blog/create_post.html -->
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1>Utwórz nowy post</h1>
+    <form method="POST">
+        {% csrf_token %}
+
+        <!-- Pole tytułu posta -->
+        <label for="title">Tytuł:</label>
+        <input type="text" name="title" id="title" required /><br />
+
+        <!-- Pole treści posta -->
+        <label for="content">Treść:</label>
+        <textarea name="content" id="content" required></textarea><br />
+
+        <!-- Przycisk do utworzenia posta -->
+        <button type="submit">Utwórz post</button>
+    </form>
+{% endblock %}

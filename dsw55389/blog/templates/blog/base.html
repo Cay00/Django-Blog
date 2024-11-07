@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %}Genealogica{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog/base.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header-logo">
+            <!--<img src="img/main/logo.png" alt="Logo">-->
+            <h1>Genealogica</h1>
+        </div>
+        <div class="header-nav">
+            <ol>
+                <li><a href="{% url 'blog_home' %}" class="withHover">Blog</a></li>
+                <li><a href="{% url 'create_post' %}" class="withHover">Dodaj wpis</a></li>
+                <li><a href="{% url 'profile' %}" class="withHover">Profil</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Główna zawartość strony -->
+    <main>
+        {% block content %}
+        <!-- W tym miejscu będą wstawiane treści stron -->
+        {% endblock %}
+    </main>
+
+
+    <div class="footer">
+        <div class="footer-copyright">
+            <p>&copy; 2024 Krzysztof Turek</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

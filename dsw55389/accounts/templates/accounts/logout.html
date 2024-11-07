@@ -1,0 +1,7 @@
+<!-- accounts/templates/accounts/logout.html -->
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2>Wylogowano pomyślnie</h2>
+    <p>Chcesz się zalogować ponownie? <a href="{% url 'login' %}">Zaloguj się</a></p>
+{% endblock %}

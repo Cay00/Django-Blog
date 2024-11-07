@@ -1,0 +1,20 @@
+<!-- blog/templates/blog/blog_home.html -->
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1>Wszystkie posty</h1>
+
+        <ul>
+            {% for post in posts %}
+            <li>
+                <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
+                <p>{{ post.content|truncatewords:30 }}</p>
+                <!-- Pokazuje skrócony tekst posta -->
+                <p><strong>Autor:</strong> {{ post.author.username }}</p>
+                <p><strong>Data publikacji:</strong> {{ post.created_at }}</p>
+            </li>
+            {% empty %}
+            <p>Brak postów.</p>
+            {% endfor %}
+        </ul>
+{% endblock %}

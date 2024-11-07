@@ -1,0 +1,12 @@
+<!-- blog/templates/blog/delete_post.html -->
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1>Usuń post</h1>
+    <p>Czy na pewno chcesz usunąć ten post?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Usuń post</button>
+    </form>
+    <a href="{% url 'profile' %}">Anuluj</a> <!-- Link do powrotu do profilu użytkownika -->
+{% endblock %}

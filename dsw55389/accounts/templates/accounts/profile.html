@@ -1,0 +1,28 @@
+<!-- accounts/templates/accounts/profile.html -->
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1>Witaj na swoim profilu, {{ user.username }}!</h1>
+
+    <!-- Link do wylogowania -->
+    <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Wyloguj się</button>
+    </form>
+
+    <h2>Twoje posty:</h2>
+
+    <!-- Link do strony tworzenia posta -->
+    <a href="{% url 'create_post' %}">Utwórz nowy post</a>
+
+    {% for post in posts %}
+        <div class="post-item">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.content|truncatewords:50 }}</p>
+            <a href="{% url 'edit_post' post.id %}">Edytuj</a>
+            <a href="{% url 'delete_post' post.id %}">Usuń</a>
+        </div>
+    {% empty %}
+        <p>Nie masz jeszcze żadnych postów.</p>
+    {% endfor %}
+{% endblock %}

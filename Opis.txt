@@ -1,0 +1,21 @@
+Projekt 2: Strona/Apka w React
+
+Opis zadania:  
+
+Stwórz jednostronicową aplikację (SPA) w React, która wyświetla katalog produktów z możliwością filtrowania i sortowania. Aplikacja powinna pozwalać użytkownikom na dodawanie produktów do koszyka oraz składanie zamówień. Interfejs użytkownika powinien być responsywny i intuicyjny.
+
+Wymagania dodatkowe:
+
+- Użyj biblioteki Redux do zarządzania stanem aplikacji.
+- Załaduj dane produktów z pliku JSON lub zewnętrznego API.
+- Zaimplementuj obsługę błędów oraz ładowanie danych asynchronicznych.
+
+
+Kupno sprzętu wojskowego (czołgi, rakiety)
+
+Bazy JSON:
+https://gist.github.com/root-cause/3f29d38179b12245a003fb4fff615335
+https://github.com/CleverRaven/Cataclysm-DDA/blob/master/data/json/itemgroups/military.json
+
+Ikony:
+https://creattie.com/icons/collection/military-icons-1

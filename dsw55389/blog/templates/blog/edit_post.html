@@ -1,0 +1,20 @@
+<!-- blog/templates/blog/edit_post.html -->
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1>Edytuj post</h1>
+    <form method="POST">
+        {% csrf_token %}
+
+        <!-- Pole do edytowania tytułu posta -->
+        <label for="title">Tytuł:</label>
+        <input type="text" name="title" id="title" value="{{ post.title }}" required /><br />
+
+        <!-- Pole do edytowania treści posta -->
+        <label for="content">Treść:</label>
+        <textarea name="content" id="content" required>{{ post.content }}</textarea><br />
+
+        <!-- Przycisk do zapisania zmian -->
+        <button type="submit">Zapisz zmiany</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,45 @@
+<!-- blog/templates/blog/post_detail.html -->
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <!-- Tytuł posta -->
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+
+    <!-- Sekcja głosowania -->
+    <h2>Głosowanie:</h2>
+    <p>Łapki w górę: {{ upvotes }}</p>
+    <p>Łapki w dół: {{ downvotes }}</p>
+
+    {% if user.is_authenticated %}
+        <!-- Formularz do głosowania -->
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" name="vote" value="True">👍</button>
+            <button type="submit" name="vote" value="False">👎</button>
+        </form>
+    {% else %}
+        <p>Zaloguj się, aby zagłosować.</p>
+    {% endif %}
+
+    <!-- Sekcja komentarzy -->
+    <h2>Komentarze:</h2>
+    <ul>
+        {% for comment in comments %}
+            <li><strong>{{ comment.author.username }}</strong>: {{ comment.content }} <em>({{ comment.created_at }})</em></li>
+        {% endfor %}
+    </ul>
+
+    {% if user.is_authenticated %}
+        <h3>Dodaj komentarz:</h3>
+        <!-- Formularz dodawania komentarza -->
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="hidden" name="comment" value="1" />
+            <button type="submit">Dodaj komentarz</button>
+        </form>
+    {% else %}
+        <p>Musisz być zalogowany, aby dodać komentarz.</p>
+    {% endif %}
+{% endblock %}

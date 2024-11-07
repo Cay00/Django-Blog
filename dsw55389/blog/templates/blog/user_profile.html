@@ -1,0 +1,19 @@
+<!-- blog/templates/blog/user_profile.html -->
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1>Twój profil</h1>
+    <div class="post-list">
+        {% for post in posts %}
+            <div class="post-item">
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content|truncatewords:50 }}</p>
+                <p><a href="{% url 'post_detail' post.id %}">Czytaj więcej</a></p>
+                <a href="{% url 'edit_post' post.id %}">Edytuj</a>
+                <a href="{% url 'delete_post' post.id %}">Usuń</a>
+            </div>
+        {% empty %}
+            <p>Nie masz żadnych postów</p>
+        {% endfor %}
+    </div>
+{% endblock %}
