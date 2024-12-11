@@ -21,9 +21,5 @@ def register(request):
 
 @login_required
 def profile(request):
-    return render(request, 'accounts/profile.html')
-
-
-def profile(request):
     posts = Post.objects.filter(author=request.user)
     return render(request, 'accounts/profile.html', {'posts': posts})
